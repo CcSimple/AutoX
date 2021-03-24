@@ -13,11 +13,9 @@ import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.ProgressBar;
 
 import com.linsh.utilseverywhere.ContextUtils;
-import com.stardust.auojs.inrt.BuildConfig;
 import com.stardust.auojs.inrt.R;
 import com.stardust.util.IntentUtil;
 
@@ -250,9 +248,9 @@ public class UpdateUtil {
         intent.setAction(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-         String AUTHORITY =   ContextUtils.getPackageName()+ ".fileprovider";
+        String AUTHORITY = ContextUtils.getPackageName() + ".fileprovider";
 
-        IntentUtil.installApkOrToast(mContext, apkfile.getPath(),AUTHORITY);
+        IntentUtil.installApkOrToast(mContext, apkfile.getPath(), AUTHORITY);
     }
 
     Handler handler = new Handler() {

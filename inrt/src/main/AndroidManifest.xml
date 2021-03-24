@@ -25,14 +25,9 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:label, android:allowBackup"
         tools:targetApi="m">
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
         <activity android:name=".LogActivity"></activity>
         <activity
             android:name=".SplashActivity"
-            android:clearTaskOnLaunch="true"
-            android:finishOnTaskLaunch="true"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -101,11 +101,11 @@ public class DevPluginResponseHandler implements Handler {
     }
 
     private void runScript(String viewId, String name, String script) {
-        StringScriptSource scriptSource = new StringScriptSource(name,script);
+        StringScriptSource scriptSource = new StringScriptSource(name, script);
         ExecutionConfig config = new ExecutionConfig();
         config.setWorkingDirectory(Pref.getScriptDirPath());
         ScriptExecution scriptExecution = AutoJs.Companion.getInstance().getScriptEngineService().execute(scriptSource, new ExecutionConfig());
-       mScriptExecutions.put(viewId, scriptExecution);
+        mScriptExecutions.put(viewId, scriptExecution);
     }
 
     private void stopScript(String viewId) {

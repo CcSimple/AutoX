@@ -18,7 +18,6 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.linsh.utilseverywhere.IntentUtils
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
-import com.stardust.auojs.inrt.util.UpdateUtil
 import com.stardust.util.IntentUtil
 import ezy.assist.compat.SettingsCompat
 import java.util.*
@@ -39,12 +38,7 @@ class SplashActivity : AppCompatActivity() {
         if (!Pref.isFirstUsing()) {//不是第一次
             main()
         } else {
-            if(Pref.getHost("d")=="d"){
-                Pref.setHost("112.74.161.35")
-            }
-            if (!BuildConfig.isMarket) {
-                Handler().postDelayed({ this@SplashActivity.main() }, INIT_TIMEOUT)
-            }
+            Handler().postDelayed({ this@SplashActivity.main() }, INIT_TIMEOUT)
         }
     }
 
@@ -85,17 +79,8 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun runScript() {
-        if (BuildConfig.isMarket) {
-            var intent: Intent = Intent(this@SplashActivity, LoginActivity::class.java);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent)
-            this@SplashActivity.finish();
-            return
-        }
         Thread {
             try {
-
-                Thread.sleep(2000);
                 GlobalProjectLauncher.launch(this)
                 this.finish();
             } catch (e: Exception) {
@@ -140,34 +125,28 @@ class SplashActivity : AppCompatActivity() {
     }
 
     companion object {
-
         private const val PERMISSION_REQUEST_CODE = 11186
         private const val INIT_TIMEOUT: Long = 2500
     }
 
     override fun onResume() {
-        if (BuildConfig.isMarket) {
-            Log.d(TAG, "onResume: ")
-            if (!Pref.isFirstUsing()) { //已经不是第一次了
-                if (step == 1) {
-                    manageDrawOverlays();
-                }
-                if (step == 2) {
-                    manageWriteSettings();
-                }
-                if (step == 3) {
-                    AccessibilitySetting();
-                }
-                if (step == 4) {
-                    main();
-                }
-                step++;
+        Log.d(TAG, "onResume: ")
+        if (!Pref.isFirstUsing()) { //已经不是第一次了
+            if (step == 1) {
+                manageDrawOverlays();
             }
-
+            if (step == 2) {
+                manageWriteSettings();
+            }
+            if (step == 3) {
+                AccessibilitySetting();
+            }
+            if (step == 4) {
+                main();
+            }
+            step++;
         }
         super.onResume()
-
     }
-
 }
 

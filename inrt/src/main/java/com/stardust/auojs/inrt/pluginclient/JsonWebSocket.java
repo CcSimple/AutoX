@@ -52,7 +52,6 @@ public class JsonWebSocket {
                 .setShowLog(true)           //show  log
                 .setClient(client)   //if you want to set your okhttpClient
                 .setShowLog(true, "inrt.connect")
-
                 .setReconnectInterval(2, TimeUnit.SECONDS)  //set reconnect interval
                 .build();
         RxWebSocket.setConfig(config);
@@ -62,8 +61,8 @@ public class JsonWebSocket {
                     public void onOpen(@NonNull WebSocket webSocket) {
                         Log.d(LOG_TAG, "----链接打开----");
                         mWebSocket = webSocket;
-                       String json="{\"data\":\"连接中...\",\"type\":\"hello\",\"message_id\":\"1615128788594"+new Random().nextInt(1000) +"\"}";
-                    dispatchJson(json);
+                        String json = "{\"data\":\"连接中...\",\"type\":\"hello\",\"message_id\":\"1615128788594" + new Random().nextInt(1000) + "\"}";
+                        dispatchJson(json);
                     }
 
                     @Override

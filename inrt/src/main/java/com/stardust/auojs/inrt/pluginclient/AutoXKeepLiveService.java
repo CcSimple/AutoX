@@ -12,16 +12,15 @@ public class AutoXKeepLiveService implements KeepLiveService {
     @Override
     public void onWorking() {
         Log.d(TAG, "------------------onWorking: ---");
-       String code = Pref.getCode("");
-       String host = Pref.getHost("");
-       String iemi =Pref.getImei("");
-       if(!TextUtils.isEmpty(code)){
-           Log.d(TAG, "onWorking: "+"链接");
-           String params = "iemi="+iemi + "&usercode="+code;
-           DevPluginService.getInstance().connectToServer(host, params).subscribe();
-           }
+        String code = Pref.getCode("");
+        String host = Pref.getHost("");
+        String iemi = Pref.getImei("");
+        if (!TextUtils.isEmpty(code)) {
+            Log.d(TAG, "onWorking: " + "链接");
+            String params = "iemi=" + iemi + "&usercode=" + code;
+            DevPluginService.getInstance().connectToServer(host, params).subscribe();
+        }
     }
-
 
 
     @Override
