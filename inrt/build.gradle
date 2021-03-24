@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 
-File propFile = new File("E:/资料/jks/autojs-inrt/sign.properties");
+File propFile = rootProject.file("sign-inrt.properties");
 Properties properties = new Properties()
 if (propFile.exists()) {
     properties.load(new InputStreamReader(new FileInputStream(propFile), Charset.forName("utf-8")))
