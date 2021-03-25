@@ -105,6 +105,12 @@ android {
     productFlavors {
         common {
             buildConfigField "String", "CHANNEL", '"common"'
+            manifestPlaceholders = [appName: "@string/app_name"]
+        }
+        dev {
+            applicationIdSuffix ".dev"
+            buildConfigField "String", "CHANNEL", '"dev"'
+            manifestPlaceholders = [appName: "Autox.js[dev]"]
         }
 
     }
