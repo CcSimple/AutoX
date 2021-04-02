@@ -70,7 +70,7 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
     public static class DrawerOpenEvent {
         static DrawerOpenEvent SINGLETON = new DrawerOpenEvent();
     }
-    private static final String  signal ="uyMt3t/FqNUjYvXE6KElfppO17L1Nzhm0mXlnsPBl1o=";
+    private static final String  signal ="Inqdeo4b1yruYzB9HeZvXy4Ah2UjRHsX2fIUO8UJ1Bo=";
     private static final String LOG_TAG = "MainActivity";
 
     @ViewById(R.id.drawer_layout)
